@@ -22,13 +22,14 @@ public class PersonController : ControllerBase
 
     //antes de qualquer método precisa dizer que tipo de requisição http ele vai usar.
     [HttpGet] //Selecionar dados
-    public List<Pessoa> Get()
+    public ActionResult<List<Pessoa>> Get()
     {
+        var result = _context.pessoas.Include(p => p.contratos).ToList();
 
-        // Pessoa pessoa = new Pessoa("eu", 15, "654321");
-        // Contrato novoContrato = new Contrato("abc123", 20.13);
-        //pessoa.contratos.Add(novoContrato);
-        return _context.pessoas.Include(p => p.contratos).ToList();
+        if (result.Any()) return Ok(result);
+
+        return NoContent();
+
     }
 
     [HttpPost] //Enviar dados
@@ -48,8 +49,14 @@ public class PersonController : ControllerBase
     }
 
     [HttpDelete("{id}")] //Deletar dados.
-    public string Delete([FromRoute] int id)
+    public ActionResult<Object> Delete([FromRoute] int id)
     {
-        return "deleteado pessoa de ID " + id;
+        var result = _context.pessoas.SingleOrDefault(e => e.id == id);
+
+        if (result is null) return BadRequest(new {msg = "ID inesistente."});
+
+        _context.pessoas.Remove(result);
+        _context.SaveChanges();
+        return Ok(new {msg = "deleteado pessoa de ID " + id});
     }
 }
