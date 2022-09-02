@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\ProjetosDEV\\PrimeiraAPIdotnet\\PrimeiraAPIdotnet.csproj": {}
+    "E:\\ProjetosDev\\PrimeiraAPIDotNet\\PrimeiraAPIdotnet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\ProjetosDEV\\PrimeiraAPIdotnet\\PrimeiraAPIdotnet.csproj": {
+    "E:\\ProjetosDev\\PrimeiraAPIDotNet\\PrimeiraAPIdotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\ProjetosDEV\\PrimeiraAPIdotnet\\PrimeiraAPIdotnet.csproj",
+        "projectUniqueName": "E:\\ProjetosDev\\PrimeiraAPIDotNet\\PrimeiraAPIdotnet.csproj",
         "projectName": "PrimeiraAPIdotnet",
-        "projectPath": "C:\\Users\\User\\Desktop\\ProjetosDEV\\PrimeiraAPIdotnet\\PrimeiraAPIdotnet.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\ProjetosDEV\\PrimeiraAPIdotnet\\obj\\",
+        "projectPath": "E:\\ProjetosDev\\PrimeiraAPIDotNet\\PrimeiraAPIdotnet.csproj",
+        "packagesPath": "C:\\Users\\Moosh\\.nuget\\packages\\",
+        "outputPath": "E:\\ProjetosDev\\PrimeiraAPIDotNet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Moosh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,8 +61,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -74,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
