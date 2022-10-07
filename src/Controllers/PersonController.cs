@@ -29,23 +29,41 @@ public class PersonController : ControllerBase
         if (result.Any()) return Ok(result);
 
         return NoContent();
-
     }
 
     [HttpPost] //Enviar dados
-    public Pessoa Post([FromBody] Pessoa pessoa)
+    public ActionResult<List<Pessoa>> Post([FromBody] Pessoa pessoa)
     {
-        _context.pessoas.Add(pessoa);
-        _context.SaveChanges();
-        return pessoa;
+        try
+        {
+            _context.pessoas.Add(pessoa);
+            _context.SaveChanges();
+        }
+        catch (System.Exception)
+        {
+
+            return BadRequest(new { msg = "Erro ao cadastrar." });
+        }
+
+        return BadRequest(new { msg = $" {pessoa} cadastrada." });
     }
 
     [HttpPut("{id}")] //Atualizar informações
-    public string Update([FromRoute] int id, [FromBody] Pessoa pessoa)
+    public ActionResult<Object> Update([FromRoute] int id, [FromBody] Pessoa pessoa)
     {
-        _context.pessoas.Update(pessoa);
-        _context.SaveChanges();
-        return "Dados do ID " + id + " atualizados.";
+        try
+        {
+            _context.pessoas.Update(pessoa);
+            _context.SaveChanges();
+
+        }
+        catch (System.Exception)
+        {
+
+            return BadRequest(new { msg = "Falha na atualização." });
+        }
+
+        return Ok(new { msg = "Dados do ID " + id + " atualizados." });
     }
 
     [HttpDelete("{id}")] //Deletar dados.
@@ -53,10 +71,10 @@ public class PersonController : ControllerBase
     {
         var result = _context.pessoas.SingleOrDefault(e => e.id == id);
 
-        if (result is null) return BadRequest(new {msg = "ID inesistente."});
+        if (result is null) return BadRequest(new { msg = "ID inesistente." });
 
         _context.pessoas.Remove(result);
         _context.SaveChanges();
-        return Ok(new {msg = "deleteado pessoa de ID " + id});
+        return Ok(new { msg = "deleteado pessoa de ID " + id });
     }
 }
